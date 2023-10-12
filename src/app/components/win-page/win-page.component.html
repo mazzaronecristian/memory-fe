@@ -1,0 +1,15 @@
+<div *ngIf="win" class="lose-page-container alert alert-success" role="alert">
+  <div class="win-message-container">
+    <h1 class="win-message alert-heading">You win!</h1>
+    <p>Missed moves: {{ misses }}</p>
+    <button class="btn btn-primary" (click)="restart()">Restart</button>
+  </div>
+</div>
+
+<div *ngIf="!win" class="lose-page-container alert alert-danger" role="alert">
+  <div class="lose-message-container">
+    <h1 class="lose-message alert-heading">You lost!</h1>
+    <p>Missed moves: {{ misses }}</p>
+    <button class="btn btn-primary" (click)="restart()">Restart</button>
+  </div>
+</div>

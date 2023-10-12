@@ -1,0 +1,28 @@
+.memory-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  align-items: center;
+  height: 100vh; /* Altezza al 100% della viewport (schermo) */
+}
+
+.cards-grid {
+  display: grid;
+  row-gap: 7px;
+  column-gap: 7px;
+  grid-template-columns: repeat(4, 1fr); /* 4 card per riga */
+  justify-content: center; /* Allinea al centro lungo l'asse orizzontale */
+  align-items: center; /* Allinea al centro lungo l'asse verticale */
+  max-width: 800px; /* Massima larghezza della griglia */
+  width: 100%; /* Larghezza massima */
+  padding: 20px; /* Spaziatura interna */
+}
+
+.memory-container.disabled {
+  pointer-events: none; /* Disabilita l'interazione con il contenitore */
+}
+.blockquote{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

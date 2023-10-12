@@ -1,0 +1,30 @@
+<div class="container text-bg-success">
+  <div class="card login-container">
+    <form [formGroup]="form" (click)="onSubmit()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+        <div id="emailHelp" class="form-text"></div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          formControlName="password"
+          placeholder="Enter Password"
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <!-- alert di errore bootstrap-->
+    <div [ngClass]="{ hidden: !fail }" class="alert alert-danger">ERRORE</div>
+  </div>
+</div>

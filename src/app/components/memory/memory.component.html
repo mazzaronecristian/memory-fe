@@ -1,0 +1,20 @@
+<div class="memory-container" [class.disabled]="isChecking">
+  <div class="cards-grid">
+    <div *ngFor="let image of images">
+      <app-card
+        [image]="image"
+        [cardMatched]="cardMatched"
+        (sendIdImage)="receiveId($event)"
+      ></app-card>
+    </div>
+  </div>
+  <div class="alert alert-success">
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <span>Time: {{ time }} </span>
+        <span>Moves: {{ moves }}</span>
+        <span>misses: {{ misses }}</span>
+      </blockquote>
+    </div>
+  </div>
+</div>
