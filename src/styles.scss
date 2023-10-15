@@ -3,3 +3,26 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
+
+.thick-text{
+  font-weight: 600;
+}
+
+.important-link{
+  color: #197278;
+}
+
+.important-link:hover{
+  color: #197278;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container {
+  min-width: 100%;
+  height: 100vh;
+}

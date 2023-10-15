@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MemoryComponent } from 'src/app/components/memory/memory.component';
 
 export const routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },

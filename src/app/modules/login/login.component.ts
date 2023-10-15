@@ -31,21 +31,24 @@ export class LoginComponent {
     });
   }
 
+  onRegister() {
+    this.router.navigate(['/registration']);
+  }
   onSubmit() {
     if (this.form.valid) {
-      this.loginService
-        .doLogin(this.form.value.email, this.form.value.password)
-        .subscribe((res: ArrayBuffer) => {
-          console.log(res);
-          if (res) {
-            this.fail = false;
-            this.au.setLoggedIn(true);
-            this.router.navigate(['/memory']);
-          } else {
-            console.log('fail');
-            this.fail = true;
-          }
-        });
+      // this.loginService
+      //   .doLogin(this.form.value.email, this.form.value.password)
+      //   .subscribe((res: ArrayBuffer) => {
+      //     console.log(res);
+      //     if (res) {
+      //       this.fail = false;
+      //       this.au.setLoggedIn(true);
+      //       this.router.navigate(['/memory']);
+      //     } else {
+      //       console.log('fail');
+      //       this.fail = true;
+      //     }
+      //   });
     }
   }
 }

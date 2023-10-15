@@ -1,8 +1,9 @@
 <div class="container text-bg-success">
   <div class="card login-container">
     <form [formGroup]="form" (click)="onSubmit()">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">Email address</label>
         <input
           type="email"
           class="form-control"
@@ -10,10 +11,11 @@
           aria-describedby="emailHelp"
           placeholder="Enter email"
         />
-        <div id="emailHelp" class="form-text"></div>
       </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example2">Password</label>
         <input
           type="password"
           class="form-control"
@@ -22,9 +24,20 @@
           placeholder="Enter Password"
         />
       </div>
-      <button type="submit" class="btn btn-success">Submit</button>
+
+      <!-- Submit button -->
+      <button type="button" class="btn btn-primary btn-block mb-4">
+        Login
+      </button>
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>
+          Not a member?
+          <span class="important-link thick-text" (click)="onRegister()"
+            >Register</span
+          >
+        </p>
+      </div>
     </form>
-    <!-- alert di errore bootstrap-->
-    <div [ngClass]="{ hidden: !fail }" class="alert alert-danger">ERRORE</div>
   </div>
 </div>
