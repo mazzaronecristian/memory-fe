@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // servicesUrl: 'https://localhost:5001/api/',
-  servicesUrl: 'http://localhost:3000/', //json-server
+  servicesUrl: 'https://localhost:5001/',
 };
 
 /*

@@ -10,7 +10,9 @@ import { WinPageComponent } from './components/win-page/win-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ImagePickerService } from './services/image-picker.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToasterModule, ToasterService } from 'angular2-toaster';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToasterModule.forRoot(),
   ],
   providers: [ImagePickerService],
   bootstrap: [AppComponent],

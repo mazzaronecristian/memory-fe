@@ -1,54 +1,93 @@
-<div class="container">
-  <div class="card login-container">
-    <form>
+<div class="container text-bg-success">
+  <div class="card form-container">
+    <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
       <div class="form-outline mb-4">
-        <label class="form-label" for="form3Example1cg">Username</label>
+        <label class="form-label" for="form3Example1cg">Username*</label>
         <input
           type="text"
+          name="username"
+          ngModel
           placeholder="username"
           id="form3Example1cg"
           class="form-control"
+          required
         />
       </div>
 
       <div class="form-outline mb-4">
-        <label class="form-label" for="form3Example3cg">Email address</label>
+        <label class="form-label" for="form3Example3cg">Email address*</label>
         <input
           type="email"
+          name="email"
+          ngModel
           id="form3Example3cg"
           class="form-control"
           placeholder="Email"
+          required
+          email
         />
       </div>
 
       <div class="form-outline mb-4">
-        <label class="form-label" for="form3Example4cg">Password</label>
+        <label class="form-label" for="form3Example4cg">Password*</label>
         <input
           type="password"
+          name="password"
+          #password="ngModel"
+          ngModel
           id="form3Example4cg"
           placeholder="Password"
           class="form-control"
+          required
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
         />
+        <div
+          [hidden]="password.valid || password.pristine"
+          class="alert alert-danger"
+          role="alert"
+        >
+          La password deve contenere 8 caratteri, almeno una lettera maiuscola,
+          una lettera minuscola e un numero
+        </div>
       </div>
 
       <div class="form-outline mb-4">
         <label class="form-label" for="form3Example4cdg"
-          >Confirm password</label
+          >Confirm password*</label
         >
         <input
           type="password"
+          name="confirmPassword"
+          #confirmPassword="ngModel"
+          ngModel
           id="form3Example4cdg"
           placeholder="password"
           class="form-control"
+          required
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
         />
+        <div
+          [hidden]="
+            (password.value == confirmPassword.value &&
+              confirmPassword.touched) ||
+            confirmPassword.pristine
+          "
+          class="alert alert-danger"
+          role="alert"
+        >
+          Le password non coincidono
+        </div>
       </div>
 
       <div class="form-check d-flex justify-content-center mb-5">
         <input
-          class="form-check-input me-2"
+          class="form-check-input me-2 terms"
           type="checkbox"
+          name="terms"
+          ngModel
           value=""
           id="form2Example3cg"
+          required
         />
         <label class="form-check-label" for="form2Example3g">
           I agree all statements in
@@ -59,7 +98,13 @@
       </div>
 
       <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary btn-block mb-4">
+        <button
+          type="submit"
+          class="btn btn-primary btn-block mb-4"
+          [disabled]="
+            !regForm.valid || password.value !== confirmPassword.value
+          "
+        >
           Register
         </button>
       </div>

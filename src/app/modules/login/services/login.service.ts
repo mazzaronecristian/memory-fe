@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { ApiResponse } from 'src/app/models/api-response.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,15 +16,17 @@ export class LoginService {
   ) {}
 
   //TODO: implementare il login con Observable e cercare di fare backend
-  public doLogin(user: string, pwd: string): Observable<ArrayBuffer> | null {
-    //   return this.http.post<ApiResponseV2<string>>(
-    //     `${environment.servicesUrl}login`,
-    //     {
-    //       username: user,
-    //       password: pwd,
-    //     }
-    //   );
-    return null;
+  public doLogin(
+    username: string,
+    pwd: string
+  ): Observable<ApiResponse<string>> {
+    return this.http.post<ApiResponse<string>>(
+      `${environment.servicesUrl}api/Login`,
+      {
+        username: username,
+        password: pwd,
+      }
+    );
   }
 
   //? Implementazione del login del backend di mercatino. Da studiare

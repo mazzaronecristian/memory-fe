@@ -1,15 +1,17 @@
 <div class="container text-bg-success">
   <div class="card login-container">
-    <form [formGroup]="form" (click)="onSubmit()">
+    <form #logForm="ngForm" (ngSubmit)="onSubmit(logForm)">
       <!-- Email input -->
       <div class="form-outline mb-4">
-        <label class="form-label" for="form2Example1">Email address</label>
+        <label class="form-label" for="form2Example1">Username</label>
         <input
-          type="email"
+          type="text"
+          name="username"
+          #username="ngModel"
+          ngModel
           class="form-control"
-          formControlName="email"
-          aria-describedby="emailHelp"
-          placeholder="Enter email"
+          placeholder="Enter username"
+          required
         />
       </div>
 
@@ -18,15 +20,21 @@
         <label class="form-label" for="form2Example2">Password</label>
         <input
           type="password"
+          name="password"
+          #password="ngModel"
+          ngModel
           class="form-control"
-          id="exampleInputPassword1"
-          formControlName="password"
           placeholder="Enter Password"
+          required
         />
       </div>
 
       <!-- Submit button -->
-      <button type="button" class="btn btn-primary btn-block mb-4">
+      <button
+        type="submit"
+        [disabled]="!logForm.valid"
+        class="btn btn-primary btn-block mb-4"
+      >
         Login
       </button>
       <!-- Register buttons -->
