@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToasterConfig, ToasterService } from 'angular2-toaster';
+import { Toast, ToasterConfig, ToasterService } from 'angular2-toaster';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +14,21 @@ export class ToastrService {
   });
   constructor(private toastr: ToasterService) {}
 
-  public success(message: string, title?: string) {
-    this.toastr.pop('success', title, message);
-  }
-  public error(message: string, title?: string) {
-    this.toastr.pop('error', title, message);
+  // public success(message: string, title?: string) {
+  //   this.toastr.pop('success', title, message);
+  // }
+  // public error(message: string, title?: string) {
+  //   debugger;
+  //   this.toastr.pop('error', title, message);
+  // }
+  public showError(message: string, title?: string, timeoutMs?: number): Toast {
+    const toastData = <Toast>{
+      type: 'error',
+      title: title,
+      body: message,
+      timeout: timeoutMs,
+    };
+
+    return this.toastr.pop(toastData);
   }
 }

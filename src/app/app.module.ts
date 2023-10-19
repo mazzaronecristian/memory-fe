@@ -12,7 +12,14 @@ import { ImagePickerService } from './services/image-picker.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ToasterModule, ToasterService } from 'angular2-toaster';
+import {
+  ToasterContainerComponent,
+  ToasterModule,
+  ToasterService,
+} from 'angular2-toaster';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { LoginModule } from './modules/login/login.module';
+import { ToastrService } from './services/toastr.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +27,7 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
     MemoryComponent,
     InfoPanelComponent,
     WinPageComponent,
+    MainMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,7 @@ import { ToasterModule, ToasterService } from 'angular2-toaster';
     BrowserAnimationsModule,
     ToasterModule.forRoot(),
   ],
-  providers: [ImagePickerService],
+  providers: [ImagePickerService, ToastrService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

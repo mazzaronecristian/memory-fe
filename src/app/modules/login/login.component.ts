@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { Router } from '@angular/router';
-import { FormBuilder, NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ResponseCode } from 'src/app/models/responseCode.model';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import { ToastrService } from 'src/app/services/toastr.service';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,9 @@ export class LoginComponent {
   constructor(
     private router: Router,
     private logService: LoginService,
-    private toasterService: ToastrService
+    private toastrService: ToastrService,
+    private toaster: ToasterService,
+    private authService: AuthService
   ) {}
 
   onRegister() {
@@ -36,10 +38,13 @@ export class LoginComponent {
       .subscribe((response) => {
         if (response.code === ResponseCode.OK) {
           // localStorage.setItem('token', response.data);
-          // this.router.navigate(['/home']);
+          this.authService.setLoggedIn(true);
+          this.router.navigate(['/menu']);
+        } else {
+          // this.toaster.pop('error', 'Error', response.message);
+          this.toastrService.showError(response.message, 'Error');
+          // this.toastrService.error(response.message, 'Error');
         }
-        console.log(response);
-        this.toasterService.error(response.message, 'Error');
       });
   }
 }
