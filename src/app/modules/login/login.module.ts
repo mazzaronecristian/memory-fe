@@ -17,6 +17,6 @@ export const routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
-  providers: [ToastrService],
+  providers: [],
 })
 export class LoginModule {}
