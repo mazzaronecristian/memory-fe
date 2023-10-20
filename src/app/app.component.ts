@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ToasterConfig, ToasterContainerComponent } from 'angular2-toaster';
-import { ToastrService } from './services/toastr.service';
+import { ToastrService } from 'src/app/services/toastr.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,9 @@ import { ToastrService } from './services/toastr.service';
 })
 export class AppComponent {
   title = 'Memory';
-  public toasterConfig!: ToasterConfig;
 
-  constructor(private toastrService: ToastrService) {
-    this.toasterConfig = this.toastrService.toasterConfig;
+  public toasterConfig: ToasterConfig;
+  constructor(private toaster: ToastrService) {
+    this.toasterConfig = this.toaster.toasterConfig;
   }
 }

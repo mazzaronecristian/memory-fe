@@ -11,10 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImagePickerService } from './services/image-picker.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToasterModule } from 'angular2-toaster';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
-import { ToastrService } from './services/toastr.service';
 @NgModule({
   declarations: [
     AppComponent,

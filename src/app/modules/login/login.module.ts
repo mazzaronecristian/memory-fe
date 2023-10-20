@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ToastrService } from 'src/app/services/toastr.service';
+import { ToasterModule } from 'angular2-toaster';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
@@ -15,6 +16,8 @@ export const routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    // BrowserAnimationsModule,
+    // ToasterModule.forRoot(),
     RouterModule.forChild(routes),
   ],
   providers: [],

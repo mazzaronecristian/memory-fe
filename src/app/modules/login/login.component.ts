@@ -13,13 +13,7 @@ import { NgForm, NgModel } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  public toasterConfig = new ToasterConfig({
-    tapToDismiss: false,
-    timeout: 5000,
-    showCloseButton: true,
-    animation: 'flyLeft',
-    positionClass: 'toast-top-right',
-  });
+  public toasterConfig = new ToasterConfig();
   constructor(
     private router: Router,
     private logService: LoginService,
@@ -41,9 +35,7 @@ export class LoginComponent {
           this.authService.setLoggedIn(true);
           this.router.navigate(['/menu']);
         } else {
-          // this.toaster.pop('error', 'Error', response.message);
-          this.toastrService.showError(response.message, 'Error');
-          // this.toastrService.error(response.message, 'Error');
+          this.toastrService.showError(response.message, 'Errore');
         }
       });
   }

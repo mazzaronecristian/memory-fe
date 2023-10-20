@@ -9,18 +9,11 @@ export class ToastrService {
     tapToDismiss: false,
     timeout: 5000,
     showCloseButton: true,
-    animation: 'flyLeft',
+    animation: 'slideDown',
     positionClass: 'toast-top-right',
   });
   constructor(private toastr: ToasterService) {}
 
-  // public success(message: string, title?: string) {
-  //   this.toastr.pop('success', title, message);
-  // }
-  // public error(message: string, title?: string) {
-  //   debugger;
-  //   this.toastr.pop('error', title, message);
-  // }
   public showError(message: string, title?: string, timeoutMs?: number): Toast {
     const toastData = <Toast>{
       type: 'error',
