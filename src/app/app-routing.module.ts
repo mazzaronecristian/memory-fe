@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WinPageComponent } from 'src/app/components/win-page/win-page.component';
 import { MemoryComponent } from './components/memory/memory.component';
-import { AuthService } from './services/auth.service';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/memory',
+    redirectTo: '/menu',
     pathMatch: 'full',
   },
   {
@@ -17,12 +17,12 @@ const routes: Routes = [
   },
   {
     path: 'memory',
-    canActivate: [AuthService],
+    canActivate: [AuthGuard],
     component: MemoryComponent,
   },
   {
     path: 'menu',
-    canActivate: [AuthService],
+    canActivate: [AuthGuard],
     component: MainMenuComponent,
   },
   {

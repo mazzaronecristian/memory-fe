@@ -1,6 +1,10 @@
 <div class="container text-bg-success">
   <div class="card form-container">
-    <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+    <form
+      class="d-flex flex-column"
+      #regForm="ngForm"
+      (ngSubmit)="onSubmit(regForm)"
+    >
       <div class="form-outline mb-4">
         <label class="form-label" for="form3Example1cg">Username*</label>
         <input

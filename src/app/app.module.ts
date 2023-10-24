@@ -8,11 +8,17 @@ import { InfoPanelComponent } from './components/info-panel/info-panel.component
 import { AppRoutingModule } from './app-routing.module';
 import { WinPageComponent } from './components/win-page/win-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ImagePickerService } from './services/image-picker.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToasterModule } from 'angular2-toaster';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
+
+export function tokenGetter() {
+  return localStorage.getItem('jwt');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +36,15 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: [environment.servicesUrl],
+        disallowedRoutes: [],
+      },
+    }),
   ],
-  providers: [ImagePickerService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

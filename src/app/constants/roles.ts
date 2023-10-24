@@ -4,6 +4,6 @@ export enum ROLE {
 }
 
 export const ROLES_LIST = [
-  { key: ROLE.Admin, value: 'Amministratore' },
-  { key: ROLE.Player, value: 'Player' },
+  { key: ROLE.Admin, value: 'admin' },
+  { key: ROLE.Player, value: 'player' },
 ];

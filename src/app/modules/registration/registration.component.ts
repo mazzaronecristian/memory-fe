@@ -21,7 +21,6 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {}
   onSubmit(form: NgForm) {
     const newUser = new UserDTO();
-    console.log(form.value);
     newUser.id = 0;
     newUser.username = form.value.username;
     newUser.password = form.value.password;

@@ -12,7 +12,6 @@ export class RegistrationService {
   constructor(private http: HttpClient) {}
 
   doRegistration(item: UserDTO): Observable<ApiResponse<string>> {
-    console.log(item);
     return this.http.post<ApiResponse<string>>(
       `${environment.servicesUrl}api/User`,
       item

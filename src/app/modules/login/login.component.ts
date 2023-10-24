@@ -1,11 +1,11 @@
 import { Component, NgModule } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 import { ResponseCode } from 'src/app/models/responseCode.model';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import { ToastrService } from 'src/app/services/toastr.service';
 import { NgForm, NgModel } from '@angular/forms';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +18,7 @@ export class LoginComponent {
     private router: Router,
     private logService: LoginService,
     private toastrService: ToastrService,
-    private toaster: ToasterService,
-    private authService: AuthService
+    private tokenService: TokenService
   ) {}
 
   onRegister() {
@@ -31,8 +30,8 @@ export class LoginComponent {
       .doLogin(form.value.username, form.value.password)
       .subscribe((response) => {
         if (response.code === ResponseCode.OK) {
-          // localStorage.setItem('token', response.data);
-          this.authService.setLoggedIn(true);
+          const token = response.item;
+          this.tokenService.setToken(token);
           this.router.navigate(['/menu']);
         } else {
           this.toastrService.showError(response.message, 'Errore');
