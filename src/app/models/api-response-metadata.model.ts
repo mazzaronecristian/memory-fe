@@ -1,4 +1,4 @@
-export class ApiResponseV2Metadata {
+export class ApiResponseMetadata {
   key: string | undefined;
   value: string | undefined;
 }

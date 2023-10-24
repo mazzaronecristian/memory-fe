@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameDTO } from 'src/app/models/gameDTO';
+import { ResultsService } from 'src/app/services/results.service';
 
 @Component({
   selector: 'app-main-menu',
@@ -9,12 +10,19 @@ import { GameDTO } from 'src/app/models/gameDTO';
 export class MainMenuComponent implements OnInit {
   public games: GameDTO[] = [];
 
-  constructor() {}
+  constructor(private resultService: ResultsService) {}
 
   ngOnInit(): void {
-    //TODO prendere le partite passate da db, ordinate per punteggio, e metterle in games (se l'utente è admin, le devo prendere tutte!)
+    this.resultService.getResults().subscribe((res) => {
+      if (!(!!res && !!res.item)) {
+        return;
+      }
+      this.games = res.item;
+    });
   }
   setDifficulty(arg0: string) {
-    throw new Error('Method not implemented.');
+    this.resultService.getResults().subscribe((res) => {
+      console.log(res);
+    });
   }
 }

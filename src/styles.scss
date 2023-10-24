@@ -1,14 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,400;1,500&display=swap");
 
-$main-bg-color: #f0f0f0;
-$main-text-color: #6c757d;
-$modal-bg-color: #fff;
-$light-grey: #f0f0f0;
-$dark-grey: #6c757d;
-$light-blue: #197278;
-$dark-blue: #0f4c75;
-$light-green: #00b7c2;
-$dark-green: #00b7c2;
+@import "./app/modules/theme/variables.scss";
+@import "./app/modules/theme/_ngx-datatable.scss";
 
 * {
   font-family: "Poppins", sans-serif;

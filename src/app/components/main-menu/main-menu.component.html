@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center align-items-center">
   <div
-    class="card input-group w-50 rounded d-flex flex-column justify-content-center align-items-center py-5"
+    class="card input-group w-75 ounded d-flex flex-column justify-content-center align-items-center py-5"
   >
     <h1 class="title">Memory</h1>
     <span class="mb-4">Scegli la difficoltà</span>
@@ -16,6 +16,71 @@
         Difficile
       </button>
     </div>
-    <ngx-datatable [rows]="games"></ngx-datatable>
+    <ngx-datatable [rows]="games" class="memory striped my-3">
+      <ngx-datatable-column
+        name="Id"
+        prop="id"
+        headerClass="text-center"
+        cellClass="text-center"
+        [resizeable]="false"
+        [sortable]="false"
+      >
+        <ng-template ngx-datatable-cell-template let-value="value">
+          {{ value }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column
+        name="User"
+        prop="relatedUser"
+        headerClass="text-center"
+        cellClass="text-center"
+        [resizeable]="false"
+        [sortable]="false"
+      >
+        <ng-template ngx-datatable-cell-template let-value="value">
+          {{ value.username }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column
+        name="Difficulty"
+        prop="relatedDifficulty"
+        headerClass="text-center"
+        cellClass="text-center"
+        [resizeable]="false"
+        [sortable]="false"
+      >
+        <ng-template ngx-datatable-cell-template let-value="value">
+          {{ value.note }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column
+        name="Misses"
+        prop="misses"
+        headerClass="text-center"
+        cellClass="text-center"
+        [resizeable]="false"
+        [sortable]="false"
+      >
+        <ng-template ngx-datatable-cell-template let-value="value">
+          {{ value }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column
+        name="Moves"
+        prop="moves"
+        headerClass="text-center"
+        cellClass="text-center"
+        [resizeable]="false"
+        [sortable]="false"
+      >
+        <ng-template ngx-datatable-cell-template let-value="value">
+          {{ value }}
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
   </div>
 </div>
