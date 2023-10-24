@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { Router } from '@angular/router';
 import { ResponseCode } from 'src/app/models/responseCode.model';
@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/services/token.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   public toasterConfig = new ToasterConfig();
   constructor(
     private router: Router,
@@ -21,6 +21,11 @@ export class LoginComponent {
     private tokenService: TokenService
   ) {}
 
+  ngOnInit(): void {
+    if (!this.tokenService.isTokenExpired()) {
+      this.router.navigate(['/menu']);
+    }
+  }
   onRegister() {
     this.router.navigate(['/registration']);
   }
